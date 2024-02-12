@@ -4,7 +4,7 @@ namespace WpfApp1;
 
 public partial class MainWindow : Window
 {
-    private bool running = false;
+    private bool _running = false;
 
     public MainWindow()
     {
@@ -13,7 +13,7 @@ public partial class MainWindow : Window
 
     private void BtnToggleRun_OnClick(object sender, RoutedEventArgs e)
     {
-        if (running)
+        if (_running)
         {
             // stop
             TbStatus.Text = "Stopped";
@@ -26,6 +26,6 @@ public partial class MainWindow : Window
             BtnToggleRun.Content = "Stop";
         }
 
-        running = !running;
+        _running = !_running;
     }
 }
