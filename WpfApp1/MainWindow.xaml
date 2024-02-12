@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
+        xmlns:userControls="clr-namespace:WpfApp1.View.UserControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
@@ -15,24 +16,7 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <!-- Menu Bar -->
-        <Rectangle Grid.Row="0" Fill="Red" />
-
-        <!-- Content Pane -->
-        <Grid Grid.Row="1" ShowGridLines="True">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20*" />
-                <ColumnDefinition Width="60*" />
-                <ColumnDefinition Width="20*" />
-            </Grid.ColumnDefinitions>
-
-            <Rectangle Grid.Column="0" Fill="LightGray" />
-            <Rectangle Grid.Column="1" Fill="Gray" />
-            <Rectangle Grid.Column="2" Fill="DarkGray" />
-        </Grid>
-
-        <!-- Footer -->
-        <Rectangle Grid.Row="2" Fill="Green" />
+        <userControls:MenuBar />
 
     </Grid>
 
