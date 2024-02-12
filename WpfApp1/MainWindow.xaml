@@ -9,7 +9,10 @@
 
     <Grid>
 
-        <TextBlock Text="Hello world" FontSize="75" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Name="TbStatus" Text="" FontSize="50" />
+        <Button Name="BtnToggleRun" Width="100" Height="50" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Content="Run" FontSize="20" Click="BtnToggleRun_OnClick" />
+
 
     </Grid>
 
