@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Microsoft.Win32;
 
 namespace WpfApp1;
 
@@ -11,17 +12,23 @@ public partial class MainWindow : Window
 
     private void BtnFire_OnClick(object sender, RoutedEventArgs e)
     {
-        //MessageBox.Show("Could not open file.", "ERROR!", MessageBoxButton.OK, MessageBoxImage.Error);
+        OpenFileDialog fileDialog = new OpenFileDialog();
+        fileDialog.Filter = "C# Source Files | *.cs";
+        fileDialog.InitialDirectory = "C:\\Programming\\Projects\\wpf-practice";
+        fileDialog.Title = "Please pick CS source file(s).";
+        // fileDialog.Multiselect = true;
 
-        MessageBoxResult result = MessageBox.Show("Do you agree?", "Agreement", MessageBoxButton.YesNo, MessageBoxImage.Error);
-
-        if (result == MessageBoxResult.Yes)
+        bool? success = fileDialog.ShowDialog();
+        if (success == true)
         {
-            tbInfo.Text = "Agreed";
+            string path = fileDialog.FileName;
+            string fileName = fileDialog.SafeFileName;
+
+            tbInfo.Text = fileName;
         }
         else
         {
-            tbInfo.Text = "Not Agreed";
+            // didnt pick anything
         }
     }
 }
