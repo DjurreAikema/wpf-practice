@@ -1,38 +1,27 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows;
+﻿using System.Windows;
 
 namespace WpfApp1;
 
-public partial class MainWindow : Window, INotifyPropertyChanged
+public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        DataContext = this;
         InitializeComponent();
     }
 
-    private string boundText;
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    public string BoundText
+    private void BtnFire_OnClick(object sender, RoutedEventArgs e)
     {
-        get { return boundText; }
-        set
+        //MessageBox.Show("Could not open file.", "ERROR!", MessageBoxButton.OK, MessageBoxImage.Error);
+
+        MessageBoxResult result = MessageBox.Show("Do you agree?", "Agreement", MessageBoxButton.YesNo, MessageBoxImage.Error);
+
+        if (result == MessageBoxResult.Yes)
         {
-            boundText = value;
-            OnPropertyChanged();
+            tbInfo.Text = "Agreed";
         }
-    }
-
-    private void btnSet_Click(object sender, RoutedEventArgs e)
-    {
-        BoundText = "Set from code";
-    }
-
-    private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        else
+        {
+            tbInfo.Text = "Not Agreed";
+        }
     }
 }
