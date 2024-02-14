@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Microsoft.Win32;
+using WinForms = System.Windows.Forms;
 
 namespace WpfApp1;
 
@@ -12,23 +12,13 @@ public partial class MainWindow : Window
 
     private void BtnFire_OnClick(object sender, RoutedEventArgs e)
     {
-        OpenFileDialog fileDialog = new OpenFileDialog();
-        fileDialog.Filter = "C# Source Files | *.cs";
-        fileDialog.InitialDirectory = "C:\\Programming\\Projects\\wpf-practice";
-        fileDialog.Title = "Please pick CS source file(s).";
-        // fileDialog.Multiselect = true;
+        WinForms.FolderBrowserDialog dialog = new FolderBrowserDialog();
+        dialog.InitialDirectory = "C:\\Programming\\Projects\\wpf-practice";
+        WinForms.DialogResult result = dialog.ShowDialog();
 
-        bool? success = fileDialog.ShowDialog();
-        if (success == true)
+        if (result == WinForms.DialogResult.OK)
         {
-            string path = fileDialog.FileName;
-            string fileName = fileDialog.SafeFileName;
-
-            tbInfo.Text = fileName;
-        }
-        else
-        {
-            // didnt pick anything
+            string folder = dialog.SelectedPath;
         }
     }
 }

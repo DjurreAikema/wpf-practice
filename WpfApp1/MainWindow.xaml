@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="600">
+        Title="MainWindow" Height="150" Width="250">
 
     <Grid>
 
@@ -15,10 +15,7 @@
         </Grid.RowDefinitions>
 
         <Button Name="btnFire" Content="Fire" Width="100" Height="40"
-                Click="BtnFire_OnClick"/>
-
-        <TextBlock Grid.Row="1" Name="tbInfo" FontSize="16"
-                   VerticalAlignment="Center" HorizontalAlignment="Center" />
+                Click="BtnFire_OnClick" />
 
     </Grid>
 
